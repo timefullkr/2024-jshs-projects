@@ -7,9 +7,7 @@ import uvicorn
 import socket
 from datetime import datetime
 
-# 필요한 디렉토리 생성
-if not os.path.exists("templates"):
-    os.makedirs("templates")
+
 
 # 현재 디렉토리 경로를 가져옵니다
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -26,12 +24,6 @@ templates = Jinja2Templates(directory=templates_dir)
 
 # 정적 파일 설정 추가 (절대 경로 사용)
 app.mount("/static", StaticFiles(directory=templates_dir), name="static")
-
-# 템플릿 설정
-templates = Jinja2Templates(directory="templates")
-
-# 정적 파일 설정 추가
-app.mount("/static", StaticFiles(directory="templates"), name="static")
 
 @app.get("/favicon.ico")
 async def favicon():
