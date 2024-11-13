@@ -34,8 +34,7 @@ async def read_root(request: Request):
     client_ip = request.client.host
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     return templates.TemplateResponse(
-        "index.html", 
-        {"request": request, "client_ip": client_ip, "current_time": current_time}
+        "index.html"
     )
 
 if __name__ == "__main__":
